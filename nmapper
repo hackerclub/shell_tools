@@ -1,0 +1,16 @@
+#!/bin/bash
+
+opts="$@"
+
+if [ ! -w "scans" ]; then
+    mkdir scans
+fi
+
+
+FILE="scans/$(date "+%a-%H-%M-%S")"
+
+while true; do
+    nmap $opts -oG $FILE 
+    echo "complete scan for $FILE"
+    FILE="scans/$(date "+%a-%H-%M-%S")"
+done
