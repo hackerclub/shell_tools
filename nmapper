@@ -10,7 +10,7 @@ fi
 FILE="scans/$(date "+%a-%H-%M-%S")"
 
 while true; do
-    nmap $opts -oG $FILE 
+    nmap $opts -oX $FILE 
     echo "complete scan for $FILE"
     FILE="scans/$(date "+%a-%H-%M-%S")"
 done
