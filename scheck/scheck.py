@@ -79,6 +79,19 @@ def serviceCheck(host, services):
 
 	return stateList
 
+def writeReport(report):
+
+	f = open('log.txt', 'a+')
+
+	# scrap ugly coloring out of log
+	report = report.replace("\x1b[01;0m", "")
+	report = report.replace("\x1b[01;32m", "")
+	report = report.replace("\x1b[01;31m", "")
+	
+	f.write(report)
+	f.close()
+
+
 def main(argc, argv):
 	loadServices()
 
@@ -125,6 +138,7 @@ def main(argc, argv):
 			report += "\n"
 
 		os.system("clear")
+		writeReport(report)	
 		print report
 		time.sleep(30)
 
