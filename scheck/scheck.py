@@ -132,7 +132,7 @@ def main(argc, argv):
 					color = "\033[01;32m"
 				else:
 					color = "\033[01;31m"
-				state = state.ljust(6, " ")
+				state = state.ljust(7, " ")
 				sport  = port[0].ljust(5, " ")
 				report += "  %s%s\033[01;0m %s %s\n" % (color, state.upper(), sport, port[2])
 			report += "\n"
