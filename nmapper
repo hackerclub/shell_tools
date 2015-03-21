@@ -7,10 +7,11 @@ if [ ! -w "scans" ]; then
 fi
 
 
-FILE="scans/$(date "+%a-%H-%M-%S")"
+FILE="scans/$(date "+%a-%H:%M:%S")"
 
 while true; do
-    nmap $opts -oX $FILE 
+    nmap $opts -oG $FILE 
     echo "complete scan for $FILE"
-    FILE="scans/$(date "+%a-%H-%M-%S")"
+    FILE="scans/$(date "+%a-%H:%M:%S")"
+		sleep 5m
 done
